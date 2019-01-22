@@ -85,8 +85,11 @@ plt.plot([0, 1], [0, 1], color='grey', linestyle=':')
 
 plt.show()
 
-# Write output file to evaluate
+#write outFile to evaluate
 with open(outfile, 'w') as out:
-    # Write test data with prediction
+    #write train data
+    for line in range(0, len(pred_train)):
+        out.write(str(train_s[line]) + "," + str(list(train_y)[line]) + "," + str(pred_train[line]) + "\n")
+    #write test data
     for line in range(0, len(pred_test)):
         out.write(str(test_s[line]) + "," + str(list(test_y)[line]) + "," + str(pred_test[line]) + "\n")
